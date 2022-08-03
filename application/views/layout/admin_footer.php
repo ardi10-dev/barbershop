@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright ; 2014-2022 Barber</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0
@@ -48,5 +48,11 @@
 <script src="<?=base_url("assets/admiin/")?>dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?=base_url("assets/admiin/")?>dist/js/pages/dashboard.js"></script>
+<script>
+        $('.custom-file-input').on('change', function(){
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label'.addClass("selected").html(fileName);
+        })
+</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<div class="row" style="margin-left:20%; margin-right:5%">
+<div class="row" style="margin-left:20%; margin-right:5%; margin-top:3%; margin-bottom:3%">
 	<div class="col-12">
 		<div class="card">
 			<div class="card-header">
@@ -29,7 +29,7 @@
 					</thead>
 					<tbody>
 						<?php $i=1; ?>
-						<?php foreach ($user as $u) : ?>
+						<?php foreach ($customer as $u) : ?>
 						<tr>
 							<td><?= $i; ?></td>
 							<td><?= $u['nama'];?></td>
@@ -37,8 +37,8 @@
 							<td><?= $u['no_hp'];?></td>
 							<td><?= $u['role'];?></td>
 							<td><img src="<?= base_url('assets/img/profile/') . $u['gambar'];?>" width="50px" height="50px"></td>
-							<td><a href="<?php base_url()?>customer/deleteDataCustomer/<?= $u['id_user'];?>" class="badge badge-danger">Hapus</a>
-								<a href="<?php base_url()?>customer/edit/<?= $u['id_user'];?>" class="badge badge-warning">Edit</a>
+							<td><a href="<?= base_url('customer/deleteDataCustomer/').$u['id_user'];?>" class="badge badge-danger">Hapus</a>
+								<a href="<?= base_url('customer/edit/').$u['id_user'];?>" class="badge badge-warning">Edit</a>
 							</td>
 							
 						</tr>

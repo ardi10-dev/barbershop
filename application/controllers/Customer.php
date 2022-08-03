@@ -8,6 +8,7 @@ class Customer extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Customer_model');
+        $this->load->model('User_model');
 
     if(empty($this->session->userdata('email'))){
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -34,7 +35,7 @@ class Customer extends CI_Controller
     {
         $data['judul'] ="Kelola Customer"; 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['user'] = $this->Customer_model->getDataCustomer();
+        $data['customer'] = $this->Customer_model->getDataCustomer();
 
 
         $this->load->view("layout/admin_header", $data);
@@ -53,7 +54,7 @@ class Customer extends CI_Controller
 	{
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $user = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['user'] = $this->Customer_model->edit($id);
+		    $data['customer'] = $this->Customer_model->edit($id);
 
         $this->load->view("layout/admin_header", $data);
         $this->load->view("admin/vw_ubah_customer", $data);
@@ -69,11 +70,17 @@ class Customer extends CI_Controller
             'email' => $this->input->post('email'),
             'no_hp' => $this->input->post('no_hp'),
             'role' => $this->input->post('role'),
-        ];
-
-        $this->Customer_model->updDataCustomer($id, $data);
-
-        redirect('customer');
+            'gambar'=> $_FILES['gambar']['name']];
+            $config['upload_path']='assets/img/profile/';
+            $config['allowed_types']='gif|jpg|png';
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('gambar');
+            $this->upload->data();
+            $this->upload->display_errors();
+  
+            $this->Customer_model->updDataCustomer($id, $data);
+  
+            redirect('Customer');
     }
 }
 ?>

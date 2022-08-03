@@ -33,4 +33,13 @@ class Transaksi_model extends CI_Model
         $query = $this->db->get_where('transaksi', array('id' => $id));
         return $query->result_array();
    	}
+
+    public function getharga()
+    {
+        $id_layanan = $this->session->userdata('id_layanan');
+        $query = $this->db->get_where('layanan', array('id_layanan' => $id_layanan));
+        $this->db->where('id_user', $id_layanan);
+        
+        return $query->num_rows();
+    }
 }

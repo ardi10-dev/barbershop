@@ -1,6 +1,6 @@
 <section class="content">
       <div class="container-fluid">
-        <div class="row" style="margin-left:20%; margin-right:5%">
+        <div class="row" style="margin-left:20%; margin-right:5%; margin-top:3%; margin-bottom:3%">
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
@@ -38,22 +38,18 @@
                     <input type="text" class="form-control" name="no_hp" value="<?= $row['no_hp']; ?>">
                   </div>
                   <div class="form-group">
-                    <label for="gambar">Gambar</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="gambar">
-                        <label class="custom-file-label" for="gambar">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
-                    </div>
-                  </div>
+                            <img src="<?= base_url('assets/img/profile/') . $row['gambar']; ?>" style="width: 100px;" class="img-thumbnail">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="gambar" id="gambar" value="<?= $row['gambar']; ?>">
+                                <label for="gambar" class="custom-file-label">Choose File</label>
+                            </div>
+                        </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
+                  <a href="<?= base_url('Pegawai') ?>" class="btn btn-danger">Tutup</a>
                 </div>
               </form>
               <?php } ?>

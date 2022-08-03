@@ -1,6 +1,6 @@
 <section class="content">
       <div class="container-fluid">
-        <div class="row" style="margin-left:20%; margin-right:5%">
+        <div class="row" style="margin-left:20%; margin-right:5%; margin-top:3%; margin-bottom:3%">
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
@@ -20,6 +20,7 @@
                     <label for="exampleInputEmail1">Nama Layanan</label>
                     <input type="hidden" class="form-control" name="id_layanan" value="<?= $row['id_layanan']; ?>">
                     <input type="text" class="form-control" name="nama_layanan" value="<?= $row['nama_layanan']; ?>">
+                    
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Deskripsi</label>
@@ -35,6 +36,7 @@
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
+                  <a href="<?= base_url('Layanan') ?>" class="btn btn-danger">Tutup</a>
                 </div>
               </form>
               <?php } ?>

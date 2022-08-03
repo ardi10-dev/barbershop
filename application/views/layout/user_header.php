@@ -56,9 +56,9 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="<?=base_url('User/')?>">Home</a></li>
-                                            <li><a href="">About</a></li>
-                                            <li><a href="services.html">Services</a></li>
+                                            <li><a href="#service-info">Service</a></li>
                                             <li><a href="<?= base_url('Pemesanan/'); ?>">Booking</a></li>
+                                            <li><a href="#team-info">Our Team</a></li>
                                         </ul>
                                     </nav>
                                 </div>

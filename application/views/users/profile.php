@@ -10,32 +10,32 @@
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links" style="border-radius: 10px;">
-                        <a class="list-group-item list-group-item-action active" data-toggle="list"
-                            href="#account-general">General</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#history-info">History</a>
-                        <a class="list-group-item list-group-item-action"
+                        <a class="list-group-item list-group-item-action active" style="border-radius: 25px;"
+                            data-toggle="list" href="#account-general">General</a>
+                        <a class="list-group-item list-group-item-action" style="border-radius: 25px;"
+                            data-toggle="list" href="#history-info">History</a>
+                        <a class="list-group-item list-group-item-action" style="border-radius: 25px;"
                             href="<?= base_url('Auth/logout');?> ">LogOut</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-change-password">Change Password</a>
+                        <!-- <a class="list-group-item list-group-item-action" data-toggle="list"
+                            style="border-radius: 25px;" href="#account-change-password">Change Password</a> -->
                     </div>
                 </div>
-                
-                <div class="col-md-9">
-                    <div class="tab-content">
-                        <div class="tab-pane fade active show" id="account-general">
 
+                <div class="col-md-9">
+                    <div class="tab-content" style="margin-left:30px">
+                        <div class="tab-pane fade active show" id="account-general">
+                            <?php foreach($user as $a){ ?>
                             <div class="card-body media align-items-center">
-                                <img style="border-radius: 10px; width:50px;"
+                                <img style="border-radius: 10px; width:100px;"
                                     src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                                     class="d-block ui-w-80">
-                                
+                                <h4 style="margin-left:20px;"><?= $a['email'];?></h4>
                             </div>
-                            <?php foreach($user as $a){ ?>
-                            <h4><?= $a['email'];?></h4>
+
+
                             <hr class="border-light m-0">
                             <form action="<?= base_url('User/update');?>" method="POST">
-                            <input type="hidden" name="id_user" value="<?= $a['id_user']; ?>">
+                                <input type="hidden" name="id_user" value="<?= $a['id_user']; ?>">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label class="form-label ">NAME</label>
@@ -63,10 +63,10 @@
                             </form>
 
                         </div>
-                    <?php }?>
+                        <?php }?>
 
                     </div>
-                    <div class="tab-pane fade" id="account-change-password">
+                    <!-- <div class="tab-pane fade" id="account-change-password">
                         <div class="card-body pb-2" style="border-radius: 10px;">
 
                             <div class="form-group">
@@ -85,14 +85,14 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
                     <div class="tab-pane fade" id="history-info" style="border-radius: 10px;">
                         <div class="row" style="border-radius: 10px;">
                             <div class="col-12">
-                                <div class="card">
+                                <div class="card" style="border-radius: 25px;">
 
                                     <!-- /.card-header -->
-                                    <div class="card-body table-responsive p-0">
+                                    <div class="card-body table-responsive p-0" style="border-radius: 25px;">
                                         <table class="table table-hover text-nowrap">
                                             <thead>
                                                 <tr>
@@ -104,16 +104,31 @@
                                                     <th>status</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <?php $i = 1; ?>
-                                                <?php foreach ($riwayat as $u) : ?>
+                                            <tbody><?php $i = 1; ?>
+                                                <?php
+                                                    
+                                                    $p = $this->db->get('layanan');
+                                                    $dist2 =  array();
+                                                    if ($p->num_rows() > 0) {
+                                                        foreach ($p->result() as $row2) {
+                                                                $dist2[] = $row2;
+                                                            }
+                                                    }
+
+                                                    foreach ($riwayat as $e) : ?>
                                                 <tr>
                                                     <td><?=$i; ?>.</td>
-                                                    <td><?=$u['tanggal']; ?></td>
-                                                    <td><?=$u['jam']; ?></td>
-                                                    <td><?=$u['id_layanan']; ?></td>
-                                                    <td><?=$u['harga']; ?></td>
-                                                    <td><?=$u['status']; ?></td>
+                                                    <td><?=$e['tanggal']; ?></td>
+                                                    <td><?=$e['jam']; ?></td>
+                                                    <td><?php
+                                                        foreach ($dist2 as $item) {
+                                                            $item->id_layanan;
+                                                            if ($item->id_layanan == $e['id_layanan']) echo
+                                                            $item->nama_layanan;
+                                                            }?>
+                                                    </td>
+                                                    <td><?=$e['harga']; ?></td>
+                                                    <td><?=$e['status']; ?></td>
                                                 </tr>
                                                 <?php $i++;?>
                                                 <?php endforeach;?>

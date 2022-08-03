@@ -1,6 +1,6 @@
 <section class="content">
       <div class="container-fluid">
-        <div class="row" style="margin-left:20%; margin-right:5%">
+        <div class="row" style="margin-left:20%; margin-right:5%; margin-top:3%; margin-bottom:3%">
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
@@ -11,7 +11,7 @@
               <!-- /.card-header -->
               <!-- form start -->
               <?php $i = 0;
-              foreach ($user as $row) {
+              foreach ($customer as $row) {
                 $i++;
               ?>
               <form action="<?php echo base_url('customer/updateDataCustomer/') . $row['id_user']?>" method="POST" enctype="multipart/form-data">
@@ -37,11 +37,19 @@
                     </select>
                   </div>
                   </div>
+                  <div class="form-group">
+                            <img src="<?= base_url('assets/img/profile/') . $row['gambar']; ?>" style="width: 100px;" class="img-thumbnail">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="gambar" id="gambar">
+                                <label for="gambar" class="custom-file-label">Choose File</label>
+                            </div>
+                        </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
+                  <a href="<?= base_url('Customer') ?>" class="btn btn-danger">Tutup</a>
                 </div>
               </form>
               <?php } ?>

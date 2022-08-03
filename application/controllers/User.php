@@ -9,6 +9,7 @@ class User extends CI_Controller
         parent::__construct();
         $this->load->model('User_model');
         $this->load->model('Layanan_model');
+        $this->load->model('Pegawai_model');
         $this->load->model('Transaksi_model');
 
         // if(empty($this->session->userdata('username'))){
@@ -34,7 +35,7 @@ class User extends CI_Controller
     function index()
     {
         $data['judul'] ="Dashboard User"; 
-        
+        $data['pegawai']=$this->Pegawai_model->getDataPegawai();
         $data['user']=$this->User_model->getBy();
         $this->load->view("layout/user_header", $data);
         $this->load->view("users/vw_dashboard_user", $data);
@@ -58,7 +59,6 @@ class User extends CI_Controller
         'no_hp'=> $this->input->post('no_hp'),
         'email'=> $this->input->post('email'),
         ];
-
         $id = $this->input->post('id_user');
         $this->User_model->update(['id_user'=> $id], $data);
         

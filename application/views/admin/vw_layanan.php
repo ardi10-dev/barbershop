@@ -1,4 +1,4 @@
-<div class="row" style="margin-left:20%; margin-right:5%">
+<div class="row" style="margin-left:20%; margin-right:5%; margin-top:3%; margin-bottom:3%">
 	<div class="col-12">
 		<div class="card">
 			<div class="card-header">
@@ -8,7 +8,7 @@
 						<div class="input-group input-group-sm" style="width: 150px;">
 							<a href="<?=site_url('Layanan/tambah')?>"><button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
 									Tambah</button></a>
-									<?= $this->session->flashdata('pesan'); ?>
+									<?= $this->session->flashdata('message'); ?>
 						</div>
 					</div>
 				</div>
@@ -41,8 +41,8 @@
 						<td>
 						<?= $l['harga']; ?>
 						</td>
-						<td><a href="<?php base_url('')?>deleteDataLayanan/<?= $l['id_layanan'];?>" class="badge badge-danger">Hapus</a>
-							<a href="<?php base_url('')?>edit/<?= $l['id_layanan'];?>" class="badge badge-warning">Edit</a>
+						<td><a href="<?= base_url('layanan/deleteDataLayanan/'). $l['id_layanan'];?>" class="badge badge-danger">Hapus</a>
+							<a href="<?= base_url('layanan/edit/').$l['id_layanan'];?>" class="badge badge-warning">Edit</a>
 							</td>
 					</tr>
 					<?php $i++; ?>

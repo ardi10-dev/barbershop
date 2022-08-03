@@ -24,7 +24,8 @@
               <div class="inner">
                 <h3><?= $count_customer; ?></h3>
 
-                <p>Total Customer</p>
+                <a style="color:white;" href="<?=base_url("Customer")?>" ><p >Customer</p></a>
+                <a href="<?=base_url("Customer")?>"></a>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -38,7 +39,8 @@
               <div class="inner">
                 <h3><?= $count_transaksi; ?></h3>
 
-                <p>Total Transaksi</p>
+                <a style="color:white;" href="<?=base_url("Transaksi")?>" ><p >Total Transaksi</p></a>
+                <a href="<?=base_url("Transaksi")?>"></a>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -50,9 +52,10 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3><?= $count_pegawai; ?></h3>
+                <h3 style="color:white;"><?= $count_pegawai; ?></h3>
 
-                <p>Total Pegawai</p>
+                <a style="color:white;" href="<?=base_url("Pegawai")?>" ><p >Pegawai</p></a>
+                <a href="<?=base_url("Pegawai")?>"></a>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -63,10 +66,12 @@
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
+
               <div class="inner">
                 <h3><?= $count_layanan; ?></h3>
-
-                <p>Total Layanan</p>
+                <a style="color:white;" href="<?=base_url("Pegawai")?>" ><p >Total Layanan</p></a>
+               
+                
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>

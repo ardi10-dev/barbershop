@@ -21,4 +21,7 @@ class Pegawai_model extends CI_Model
         $query = $this->db->get_where('pegawai', array('id_pegawai' => $id));
         return $query->result_array();
    	}
+    public function insert($data){
+        $this->db->insert('pegawaii', $data);
+    }
 }

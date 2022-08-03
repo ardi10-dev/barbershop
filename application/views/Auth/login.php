@@ -2,9 +2,10 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Login</p>
 <?=$this->session->flashdata('message');?>
-      <form class="user" action="<?= base_url('auth/cek_login');?>" method="post">
+      <form class="user" action="<?= base_url('auth');?>" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+          <input type="text" value="<?=set_value('email');?>" class="form-control" id="email" name="email" placeholder="Email">
+          <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -12,7 +13,8 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control"id="password" name="password" placeholder="Password">
+          <input type="password" value="<?=set_value('nama')?>"class="form-control"id="password" name="password" placeholder="Password">
+          <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

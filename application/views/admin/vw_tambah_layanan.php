@@ -1,6 +1,6 @@
 <section class="content">
       <div class="container-fluid">
-        <div class="row" style="margin-left:20%; margin-right:5%">
+        <div class="row" style="margin-left:20%; margin-right:5%; margin-top:3%; margin-bottom:3%">
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
@@ -10,19 +10,22 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form  action="<?php echo base_url('layanan/createDataLayanan') ?>" method="POST" enctype="multipart/form-data">
+              <form  action="<?=base_url('Layanan/createDataLayanan') ?>" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nama Layanan</label>
-                    <input type="text" class="form-control" name="nama_layanan" placeholder="Nama Layanan">
+                    <label for="nama_layanan">Nama Layanan</label>
+                    <input type="text" class="form-control" id="nama_layanan" value="<?=set_value('nama_layanan')?>" name="nama_layanan" placeholder="Nama Layanan">
+                    <?= form_error('nama_layanan', '<small class="text-danger pl-3">', '</small>'); ?>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Deskripsi</label>
-                    <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi">
+                    <label for="deskripsi">Deskripsi</label>
+                    <input type="text" class="form-control" value="<?=set_value('deskripsi')?>"id="deskripsi" name="deskripsi" placeholder="Deskripsi">
+                    <?= form_error('deskripsi', '<small class="text-danger pl-3">', '</small>'); ?>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Harga</label>
-                    <input type="text" class="form-control" name="harga" placeholder="Harga">
+                    <label for="harga">Harga</label>
+                    <input type="text" class="form-control" value="<?=set_value('harga')?>" id="harga" name="harga" placeholder="Harga">
+                    <?= form_error('harga', '<small class="text-danger pl-3">', '</small>'); ?>
                   </div>
                   </div>
                 </div>
@@ -30,6 +33,7 @@
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
+                  <a href="<?= base_url('Layanan') ?>" class="btn btn-danger">Tutup</a>
                 </div>
               </form>
             </div>

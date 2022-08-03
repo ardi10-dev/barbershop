@@ -1,4 +1,4 @@
-<div class="row" style="margin-left:20%; margin-right:5%">
+<div class="row" style="margin-left:20%; margin-right:5%; margin-top:3%; margin-bottom:3%">
 	<div class="col-12">
 		<div class="card">
 			<div class="card-header">
@@ -69,8 +69,8 @@
 												}?></td>
 							<td><?= $e['harga']; ?></td>
 							<td><?= $e['status']; ?></td>
-							<td><a href="<?php base_url('')?>deleteDataTransaksi/<?= $e['id'];?>" class="badge badge-danger">Hapus</a>
-								<a href="<?php base_url('')?>edit/<?= $e['id']; ?>" class="badge badge-warning">Edit</a>
+							<td><a href="<?= base_url('transaksi/deleteDataTransaksi/').$e['id'];?>" class="badge badge-danger">Hapus</a>
+								<a href="<?= base_url('transaksi/edit/').$e['id']; ?>" class="badge badge-warning">Edit</a>
 							</td>
 						</tr>
 						<?php $i++; ?>
