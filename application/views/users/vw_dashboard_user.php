@@ -41,7 +41,7 @@
         <div class="thumb-content-box">
             <div class="thumb-content">
                 <h3>make an appointment now</h3>
-                <a href="#"> <i class="fas fa-long-arrow-alt-right"></i></a>
+                <a href="<?= base_url('Pemesanan/'); ?>"> <i class="fas fa-long-arrow-alt-right"></i></a>
             </div>
         </div>
     </div>
